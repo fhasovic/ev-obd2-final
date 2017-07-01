@@ -1,7 +1,7 @@
 /*
  * TODO put header
  */
-package com.reversecoder.obd.reader.io;
+package com.reversecoder.obd.reader.service;
 
 import com.reversecoder.obd2.commands.ObdCommand;
 

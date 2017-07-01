@@ -4,7 +4,6 @@ import android.bluetooth.BluetoothSocket;
 import android.content.Context;
 import android.util.Log;
 
-import com.reversecoder.obd.reader.activity.ObdReaderActivity;
 import com.reversecoder.obd.reader.command.ATA1Command;
 import com.reversecoder.obd.reader.command.ATCAF0Command;
 import com.reversecoder.obd.reader.command.ATFCSH7E4Command;
@@ -12,7 +11,7 @@ import com.reversecoder.obd.reader.command.ATS0Command;
 import com.reversecoder.obd.reader.command.ATSH7E4Command;
 import com.reversecoder.obd.reader.command.ATSP6Command;
 import com.reversecoder.obd.reader.command.SoCCommand;
-import com.reversecoder.obd.reader.io.ObdCommandJob;
+import com.reversecoder.obd.reader.service.ObdCommandJob;
 import com.reversecoder.obd.reader.util.ThreadManager;
 import com.reversecoder.obd2.commands.protocol.EchoOffCommand;
 import com.reversecoder.obd2.commands.protocol.LineFeedOffCommand;

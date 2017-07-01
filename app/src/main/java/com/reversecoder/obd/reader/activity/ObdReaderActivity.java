@@ -28,10 +28,10 @@ import android.widget.Spinner;
 import com.reversecoder.library.event.OnSingleClickListener;
 import com.reversecoder.library.storage.SessionManager;
 import com.reversecoder.obd.reader.R;
-import com.reversecoder.obd.reader.io.AbstractService;
-import com.reversecoder.obd.reader.io.ObdCommandJob;
-import com.reversecoder.obd.reader.io.ObdProgressListener;
-import com.reversecoder.obd.reader.io.ObdReaderService;
+import com.reversecoder.obd.reader.service.AbstractService;
+import com.reversecoder.obd.reader.service.ObdCommandJob;
+import com.reversecoder.obd.reader.interfaces.ObdProgressListener;
+import com.reversecoder.obd.reader.service.ObdReaderService;
 import com.reversecoder.obd.reader.util.AppUtils;
 import com.reversecoder.obd.reader.util.BroadcastReceiverManager;
 

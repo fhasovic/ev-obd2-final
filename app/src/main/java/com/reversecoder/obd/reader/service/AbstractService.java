@@ -1,10 +1,12 @@
-package com.reversecoder.obd.reader.io;
+package com.reversecoder.obd.reader.service;
 
 import android.app.Service;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Binder;
 import android.os.IBinder;
+
+import com.reversecoder.obd.reader.interfaces.ServiceState;
 
 public abstract class AbstractService extends Service implements ServiceState {
 
@@ -41,13 +43,11 @@ public abstract class AbstractService extends Service implements ServiceState {
         super.onDestroy();
     }
 
-    @Override
     public void startAbstractService() throws Exception {
         setServiceRunning(true);
         startService();
     }
 
-    @Override
     public void stopAbstractService() throws Exception {
         stopService();
         setServiceRunning(false);

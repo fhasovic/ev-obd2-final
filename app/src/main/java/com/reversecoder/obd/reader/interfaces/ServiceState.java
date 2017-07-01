@@ -1,6 +1,6 @@
-package com.reversecoder.obd.reader.io;
+package com.reversecoder.obd.reader.interfaces;
 
-interface ServiceState {
+public interface ServiceState {
     
     public void startAbstractService() throws Exception;
 

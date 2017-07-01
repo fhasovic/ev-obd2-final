@@ -1,4 +1,4 @@
-package com.reversecoder.obd.reader.io;
+package com.reversecoder.obd.reader.util;
 
 import java.io.IOException;
 import java.lang.reflect.Method;

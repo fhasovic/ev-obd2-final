@@ -1,4 +1,4 @@
-package com.reversecoder.obd.reader.io;
+package com.reversecoder.obd.reader.service;
 
 import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
@@ -10,6 +10,7 @@ import com.reversecoder.library.storage.SessionManager;
 import com.reversecoder.obd.reader.R;
 import com.reversecoder.obd.reader.thread.ObdConnectionThread;
 import com.reversecoder.obd.reader.util.AllConstants;
+import com.reversecoder.obd.reader.util.BluetoothManager;
 import com.reversecoder.obd.reader.util.ThreadManager;
 
 import java.io.IOException;

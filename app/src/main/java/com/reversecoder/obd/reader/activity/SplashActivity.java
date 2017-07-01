@@ -7,8 +7,11 @@ import android.os.CountDownTimer;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.TextView;
 
+import com.reversecoder.library.storage.SessionManager;
 import com.reversecoder.obd.reader.R;
 import com.reversecoder.permission.activity.PermissionListActivity;
+
+import static com.reversecoder.obd.reader.util.AllConstants.IS_USER_LOGGED_IN;
 
 public class SplashActivity extends AppCompatActivity {
 
@@ -50,12 +53,12 @@ public class SplashActivity extends AppCompatActivity {
 
     private void navigateMainActivity() {
         Intent intent;
-//        if (SessionManager.getBooleanSetting(SplashActivity.this, IS_USER_LOGGED_IN, false)) {
-//            intent = new Intent(SplashActivity.this, HomeActivity.class);
-//        } else {
-//            intent = new Intent(SplashActivity.this, LoginActivity.class);
-//        }
-        intent = new Intent(SplashActivity.this, ObdReaderActivity.class);
+        if (SessionManager.getBooleanSetting(SplashActivity.this, IS_USER_LOGGED_IN, false)) {
+            intent = new Intent(SplashActivity.this, HomeActivity.class);
+        } else {
+            intent = new Intent(SplashActivity.this, LoginActivity.class);
+        }
+//        intent = new Intent(SplashActivity.this, ObdReaderActivity.class);
         startActivity(intent);
         finish();
     }

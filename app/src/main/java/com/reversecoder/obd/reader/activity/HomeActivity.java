@@ -31,7 +31,7 @@ public class HomeActivity extends AppCompatActivity {
         relativeLayoutItemDashboard.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(HomeActivity.this, DashboardActivity.class));
+                startActivity(new Intent(HomeActivity.this, ObdReaderActivity.class));
             }
         });
 
@@ -45,7 +45,7 @@ public class HomeActivity extends AppCompatActivity {
         relativeLayoutItemSettings.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(HomeActivity.this, ConfigActivity.class));
+//                startActivity(new Intent(HomeActivity.this, ConfigActivity.class));
             }
         });
     }
