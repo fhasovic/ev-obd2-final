@@ -1,0 +1,79 @@
+apply plugin: 'com.android.application'
+
+repositories {
+    maven {
+        url "https://raw.github.com/reversecoder/rc-permission-androidstudio/releases"
+    }
+    maven {
+        url "https://raw.github.com/reversecoder/rc-sqlitedemo-androidstudio/snapshots"
+    }
+    maven {
+        url "https://raw.github.com/reversecoder/rc-sessiontimeoutdemo-androidstudio/snapshots"
+    }
+    maven {
+        url "https://raw.github.com/reversecoder/rc-librarydemo-androidstudio/snapshots"
+    }
+    maven {
+        url "https://raw.github.com/reversecoder/rc-obd2-androidstudio/snapshots"
+    }
+}
+
+android {
+    compileSdkVersion appCompileSdkVersion
+    buildToolsVersion appBuildToolsVersion
+    defaultConfig {
+        applicationId "com.reversecoder.obd.reader"
+        minSdkVersion appMinSdkVersion
+        targetSdkVersion appTargetSdkVersion
+        versionCode appVersionCode
+        versionName appVersionName
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+//        signingConfig signingConfigs.debug
+    }
+
+    buildTypes {
+        debug {
+            debuggable true
+            minifyEnabled false
+            shrinkResources false
+        }
+//        release {
+//            minifyEnabled false
+//            debuggable false
+//            shrinkResources true
+//            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+//        }
+    }
+
+    lintOptions {
+        checkReleaseBuilds false
+        // Or, if you prefer, you can continue to check for errors in release builds,
+        // but continue the build even when errors are found:
+        abortOnError false
+    }
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+    compile "com.android.support:appcompat-v7:$supportlibraryVersion"
+
+//    compile 'com.github.pires:obd-java-api:1.0-RC16'
+    compile project(":rc-obd2")
+    compile 'com.android.support.constraint:constraint-layout:1.0.2'
+    compile 'com.reversecoder.permission:rc-permission:1.0.0'
+    compile 'com.reversecoder.sqlite:rc-sqlite:1.0.0-SNAPSHOT'
+    compile 'com.reversecoder.sessiontimeout:rc-sessiontimeout:1.0.0-SNAPSHOT'
+    compile 'com.reversecoder.library:rc-library:1.0.1-SNAPSHOT'
+//    compile 'com.reversecoder.obd2:rc-obd2:1.0.0-SNAPSHOT'
+    compile 'com.squareup.retrofit:retrofit:1.9.0'
+
+    compile 'com.google.android.gms:play-services-location:11.0.1'
+    compile 'com.google.android.gms:play-services-maps:11.0.1'
+    compile 'com.google.android.gms:play-services-places:11.0.1'
+
+    testCompile 'junit:junit:4.12'
+}

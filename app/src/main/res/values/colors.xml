@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- http://www.google.com/design/spec/style/color.html#color-color-palette -->
+    <color name="primary">#607d8b</color>
+    <!-- Blue Grey 500 -->
+    <color name="primary_dark">#455a64</color>
+    <!-- Blue Grey 700 -->
+    <color name="accent">#ff5252</color>
+    <!-- Red A200 -->
+
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+
+    <color name="textColorPrimary">#212121</color>
+    <color name="textColorSecondary">#727272</color>
+
+    <color name="gray">#444440</color>
+
+    <color name="colorDark">#455A64</color>
+    <color name="colorDarkLignt">#CFD8DC</color>
+    <!-- Marker colors -->
+    <color name="colorFastStationMark">#F0CE49</color>
+    <color name="colorCarFrontLight">#F0CE49</color>
+    <color name="colorCarRearLight">#FF5050</color>
+    <color name="colorCarWindow">#5B5D6E</color>
+</resources>

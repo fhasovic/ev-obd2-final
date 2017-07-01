@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Size of icons in map. -->
+    <integer name="car_icon_add_to_size">20</integer>
+    <integer name="station_icon_add_to_size">0</integer>
+
+    <!-- Triggers for calling the AsyncTask to sync with OpenChargeMap.io. -->
+    <!-- In meters. -->
+    <integer name="delta_trigger_location_significantly_changed">500</integer>
+    <integer name="delta_trigger_camera_significantly_changed">1000</integer>
+
+    <!-- OpenChargeMap values -->
+    <integer name="ocm_radius_km">5</integer>
+
+</resources>
