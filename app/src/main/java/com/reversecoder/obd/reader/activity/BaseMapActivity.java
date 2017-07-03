@@ -37,10 +37,10 @@ import com.google.android.gms.location.LocationSettingsRequest;
 import com.google.android.gms.location.LocationSettingsResult;
 import com.google.android.gms.location.LocationSettingsStates;
 import com.google.android.gms.location.LocationSettingsStatusCodes;
-//import com.google.android.gms.location.places.Place;
-//import com.google.android.gms.location.places.Places;
-//import com.google.android.gms.location.places.ui.PlaceAutocomplete;
-//import com.google.android.gms.location.places.ui.PlaceSelectionListener;
+import com.google.android.gms.location.places.Place;
+import com.google.android.gms.location.places.Places;
+import com.google.android.gms.location.places.ui.PlaceAutocomplete;
+import com.google.android.gms.location.places.ui.PlaceSelectionListener;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.model.BitmapDescriptor;
@@ -73,7 +73,7 @@ public abstract class BaseMapActivity extends AppCompatActivity implements
 
     public abstract void onUserLocationChanged(Location location);
 
-//    private PlaceSelectionListener mPlaceSelectionListener;
+    private PlaceSelectionListener mPlaceSelectionListener;
     private GoogleMap placeSearchGoogleMap;
 
     private boolean isRequestedForPermission = false;
@@ -222,8 +222,8 @@ public abstract class BaseMapActivity extends AppCompatActivity implements
                     .addConnectionCallbacks(this)
                     .addOnConnectionFailedListener(this)
                     .addApi(LocationServices.API)
-//                    .addApi(Places.GEO_DATA_API)
-//                    .addApi(Places.PLACE_DETECTION_API)
+                    .addApi(Places.GEO_DATA_API)
+                    .addApi(Places.PLACE_DETECTION_API)
                     .build();
         }
         mGoogleApiClient.connect();
@@ -440,21 +440,21 @@ public abstract class BaseMapActivity extends AppCompatActivity implements
      * Google place search
      * ***********************************************/
 
-//    public void doPlaceSearch(GoogleMap googleMap, PlaceSelectionListener placeSelectionListener) {
-//        try {
-//            isRequestedForPlaceSearch = true;
-//            placeSearchGoogleMap = googleMap;
-//            mPlaceSelectionListener = placeSelectionListener;
-//            Intent intent = new PlaceAutocomplete.IntentBuilder
-//                    (PlaceAutocomplete.MODE_OVERLAY)
-//                    .setBoundsBias(googleMap.getProjection().getVisibleRegion().latLngBounds)
-//                    .build(BaseMapActivity.this);
-//            startActivityForResult(intent, INTENT_PLACE_SEARCH);
-//        } catch (GooglePlayServicesRepairableException |
-//                GooglePlayServicesNotAvailableException e) {
-//            e.printStackTrace();
-//        }
-//    }
+    public void doPlaceSearch(GoogleMap googleMap, PlaceSelectionListener placeSelectionListener) {
+        try {
+            isRequestedForPlaceSearch = true;
+            placeSearchGoogleMap = googleMap;
+            mPlaceSelectionListener = placeSelectionListener;
+            Intent intent = new PlaceAutocomplete.IntentBuilder
+                    (PlaceAutocomplete.MODE_OVERLAY)
+                    .setBoundsBias(googleMap.getProjection().getVisibleRegion().latLngBounds)
+                    .build(BaseMapActivity.this);
+            startActivityForResult(intent, INTENT_PLACE_SEARCH);
+        } catch (GooglePlayServicesRepairableException |
+                GooglePlayServicesNotAvailableException e) {
+            e.printStackTrace();
+        }
+    }
 
     /*************************************************
      * Common methods for all
@@ -480,26 +480,26 @@ public abstract class BaseMapActivity extends AppCompatActivity implements
                 }
                 break;
 
-//            case INTENT_PLACE_SEARCH:
-//                isRequestedForPlaceSearch = false;
-//                switch (resultCode) {
-//                    case RESULT_OK:
-//                        Place place = PlaceAutocomplete.getPlace(this, data);
-//                        LatLng placeLatLng = place.getLatLng();
-//                        if (mPlaceSelectionListener != null && placeSearchGoogleMap != null) {
-//                            mPlaceSelectionListener.onPlaceSelected(place);
-//                            animateCamera(placeSearchGoogleMap, placeLatLng);
-//                        }
-//                        break;
-//                    case PlaceAutocomplete.RESULT_ERROR:
-//                        Status status = PlaceAutocomplete.getStatus(this, data);
-//                        if (mPlaceSelectionListener != null) {
-//                            mPlaceSelectionListener.onError(status);
-//                            updateStatus("Place selection failed: " + status.getStatusMessage());
-//                        }
-//                        break;
-//                }
-//                break;
+            case INTENT_PLACE_SEARCH:
+                isRequestedForPlaceSearch = false;
+                switch (resultCode) {
+                    case RESULT_OK:
+                        Place place = PlaceAutocomplete.getPlace(this, data);
+                        LatLng placeLatLng = place.getLatLng();
+                        if (mPlaceSelectionListener != null && placeSearchGoogleMap != null) {
+                            mPlaceSelectionListener.onPlaceSelected(place);
+                            animateCamera(placeSearchGoogleMap, placeLatLng);
+                        }
+                        break;
+                    case PlaceAutocomplete.RESULT_ERROR:
+                        Status status = PlaceAutocomplete.getStatus(this, data);
+                        if (mPlaceSelectionListener != null) {
+                            mPlaceSelectionListener.onError(status);
+                            updateStatus("Place selection failed: " + status.getStatusMessage());
+                        }
+                        break;
+                }
+                break;
         }
     }
 
