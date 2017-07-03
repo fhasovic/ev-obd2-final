@@ -1,4 +1,4 @@
-package com.reversecoder.obd.reader.thread;
+package com.reversecoder.obd.reader.backgroundtask;
 
 import android.bluetooth.BluetoothSocket;
 import android.content.Context;

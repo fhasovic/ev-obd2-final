@@ -15,16 +15,16 @@ public abstract class AbstractService extends Service implements ServiceState {
     private Context mContext;
     private boolean isServiceRunning = false;
     // Run the execute task in a different thread to lighten the UI thread
-//    Thread differentThread = new Thread(new Runnable() {
-//        @Override
-//        public void run() {
-//            try {
-//                executeTasks();
-//            } catch (InterruptedException e) {
-//                differentThread.interrupt();
-//            }
-//        }
-//    });
+    Thread differentThread = new Thread(new Runnable() {
+        @Override
+        public void run() {
+            try {
+                executeTasks();
+            } catch (InterruptedException e) {
+                differentThread.interrupt();
+            }
+        }
+    });
 
     @Override
     public IBinder onBind(Intent intent) {
@@ -35,7 +35,7 @@ public abstract class AbstractService extends Service implements ServiceState {
     public void onCreate() {
         super.onCreate();
 
-//        differentThread.start();
+        differentThread.start();
     }
 
     @Override
@@ -73,7 +73,7 @@ public abstract class AbstractService extends Service implements ServiceState {
 
     abstract public void stopService() throws Exception;
 
-//    abstract protected void executeTasks() throws InterruptedException;
+    abstract protected void executeTasks() throws InterruptedException;
 
     public class AbstractServiceBinder extends Binder {
         public AbstractService getService() {

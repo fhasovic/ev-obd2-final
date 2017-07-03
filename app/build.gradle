@@ -33,17 +33,17 @@ android {
     }
 
     buildTypes {
-        debug {
-            debuggable true
-            minifyEnabled false
-            shrinkResources false
-        }
-//        release {
+//        debug {
+//            debuggable true
 //            minifyEnabled false
-//            debuggable false
-//            shrinkResources true
-//            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+//            shrinkResources false
 //        }
+        release {
+            minifyEnabled false
+            debuggable false
+            shrinkResources true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
     }
 
     lintOptions {
@@ -71,9 +71,9 @@ dependencies {
 //    compile 'com.reversecoder.obd2:rc-obd2:1.0.0-SNAPSHOT'
     compile 'com.squareup.retrofit:retrofit:1.9.0'
 
-    compile 'com.google.android.gms:play-services-location:11.0.1'
-    compile 'com.google.android.gms:play-services-maps:11.0.1'
-    compile 'com.google.android.gms:play-services-places:11.0.1'
+    compile 'com.google.android.gms:play-services-location:11.0.2'
+    compile 'com.google.android.gms:play-services-maps:11.0.2'
+    compile 'com.google.android.gms:play-services-places:11.0.2'
 
     testCompile 'junit:junit:4.12'
 }
